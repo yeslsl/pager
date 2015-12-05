@@ -39,6 +39,15 @@ public class Pager<T> implements Serializable {
 		this.dataList = sourceList.subList(fromIndex, toIndex);
 	}
 	
+	public Pager(List<T> sourceList, int pageNum, int pageSize, int totalRecord){
+		this.pageSize = pageSize;
+		this.totalRecord = totalRecord;
+		this.totalPage = this.totalRecord % this.pageSize == 0 ? this.totalRecord / this.pageSize : (this.totalRecord / this.pageSize + 1);
+		this.currentPage = this.totalPage == 0 ? 1 : (this.totalPage < pageNum ? this.totalPage : pageNum);
+		
+		this.dataList = sourceList;
+	}
+	
 	
 	private int pageSize;//每页显示多少条记录;
 	private int currentPage;//当前第几页数据;

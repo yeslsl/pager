@@ -34,7 +34,7 @@ function firstPage(){
 		alert("已经是第一页数据");
 		return false;
 	}else{
-		submitForm("<%=context %>/SublistServlet?pageNum=1");
+		submitForm("<%=context %>/JdbcSqlServlet?pageNum=1");
 		return true;
 	}
 }
@@ -45,7 +45,7 @@ function nextPage(){
 		alert("已经是最后一页数据");
 		return false;
 	}else{
-		submitForm("<%=context %>/SublistServlet?pageNum=" + (currentPage+1));
+		submitForm("<%=context %>/JdbcSqlServlet?pageNum=" + (currentPage+1));
 		return true;
 	}
 }
@@ -56,7 +56,7 @@ function previousPage(){
 		alert("已经是第一页数据");
 		return false;
 	}else{
-		submitForm("<%=context %>/SublistServlet?pageNum=" + (currentPage-1));
+		submitForm("<%=context %>/JdbcSqlServlet?pageNum=" + (currentPage-1));
 		return true;
 	}
 }
@@ -67,10 +67,12 @@ function lastPage(){
 		alert("已经是最后一页数据");
 		return false;
 	}else{
-		submitForm("<%=context %>/SublistServlet?pageNum=" + totalPage);
+		submitForm("<%=context %>/JdbcSqlServlet?pageNum=" + totalPage);
 		return true;
 	}
 }
+
+
 function initPage(){
 	var genderRequest = "${gender}" ;
 	var genderVal = 0;
@@ -96,7 +98,7 @@ function initPage(){
 	<h2>学生信息</h2>
 	<hr>
 	<div>
-		<form action="<%=context %>/SublistServlet" id="stuForm" method="post">
+		<form action="<%=context %>/JdbcSqlServlet" id="stuForm" method="post">
 			姓名：<input type="text" name="stuName" id="stuName" value="${name }"/><br>
 			性别：<select name="gender" id="gender">
 					<option value="0">全部</option>
